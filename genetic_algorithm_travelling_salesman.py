@@ -1,3 +1,6 @@
+#
+# Optimal (by program): cities 1-8-5-4-10-6-3-7-2-11-9-1 = 253km
+#
 import random
 import time
 import math
@@ -9,7 +12,7 @@ def initialize():
     while len(population) < NUM_START_POPULATION:
         temp = list(CITIES)
         random.shuffle(temp)
-        if not (temp in CITIES):
+        if not (temp in population):
             population.append(temp)
             
             
@@ -57,6 +60,7 @@ def selection():
         cumulative_sum = 0
         i = 0
         while cumulative_sum < lucky_number:
+
             cumulative_sum += probability[i]
             i += 1
         selected_individuals_idx.append(i - 1)
@@ -134,7 +138,7 @@ DISTANCE = {(1, 1): 0, (1, 2): 29, (1, 3): 20, (1, 4): 21, (1, 5): 16, (1, 6): 3
             (11, 1): 18, (11, 2): 12, (11, 3): 13, (11, 4): 25, (11, 5): 22, (11, 6): 37, (11, 7): 84, (11, 8): 13, (11, 9): 18, (11, 10): 38, (11, 11): 0}
 CROSSOVER_RATIO = 0.5
 MUTAION_RATIO = 0.2
-POPULATION_LIMIT = 500
+POPULATION_LIMIT = 5000
 population = []            
 
 
